@@ -1,0 +1,481 @@
+:root {
+    --primary-color: #1a1a1a; /* Darker primary for contrast */
+    --secondary-color: #ffffff;
+    --text-color: #333333;
+    --light-text-color: #f8f9fa;
+    --background-color: #f0f2f5;
+    --accent-color: #ffd700; /* Subtle yellow accent */
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --whatsapp-color: #25D366;
+    --linkedin-color: #0A66C2;
+    --portfolio-color: #6c757d; /* Keeping portfolio/website distinct */
+}
+
+/* Basic Reset & Body Styling */
+body {
+    margin: 0;
+    padding: 20px; /* Add padding around the card on mobile */
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font stack */
+    /* Animated Gradient Background */
+    background: linear-gradient(
+        -45deg, /* Angle of the gradient waves */
+        var(--background-color) 25%,
+        rgba(255, 215, 0, 0.1) 60%, /* Subtle yellow wave */
+        rgba(0, 0, 0, 0.05) 90%, /* Subtle dark wave */
+        var(--background-color) 75%
+    );
+    background-size: 400% 400%; /* Make gradient much larger than viewport */
+    animation: gradientFlow 20s ease infinite; /* Apply animation */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    position: relative; /* Keep position relative for potential layering */
+    overflow: hidden; /* Keep overflow hidden */
+}
+
+/* Remove previous animation styles/keyframes */
+/* @keyframes gradientFlow { ... } */
+/* .background-points { ... } */
+/* .point { ... } */
+/* @keyframes movePoint { ... } */
+
+/* tsparticles container styling */
+#tsparticles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Place behind card and other content */
+}
+
+/* Remove previous pseudo-element styles */
+/* body::before, body::after { display: none; } */
+
+/* Keyframes for the gradient flow animation */
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Remove previous keyframes */
+/* @keyframes drift { ... } */
+/* @keyframes slideAcross { ... } */
+
+/* Card Container Styling */
+.card-container {
+    background-color: var(--secondary-color); /* Solid background color remains */
+    /* Removed background-image properties from here */
+    border-radius: 12px;
+    box-shadow: 0 5px 20px var(--shadow-color);
+    overflow: hidden; /* Keep this to clip the pseudo-element */
+    max-width: 360px;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+    position: relative; /* Ensure positioning context for pseudo-element */
+    z-index: 1; /* Ensure content stays above the pseudo-element */
+}
+
+/* Add pseudo-element for the background pattern */
+.card-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('topography.svg'); /* Apply pattern here */
+    background-repeat: repeat;
+    background-size: auto; /* Or adjust as needed */
+    opacity: 0.2; /* Set the desired opacity */
+    z-index: -1; /* Place it behind the card content */
+    border-radius: inherit; /* Inherit border-radius from parent */
+}
+
+.card-container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Header Styling */
+.card-header {
+    background-color: transparent; /* Cleaner header */
+    color: var(--text-color); /* Darker text */
+    padding: 35px 20px 15px; /* Revert padding */
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Remove old profile-pic styles */
+/* .profile-pic { ... } */
+/* .profile-link { ... } */
+/* .profile-link:hover .profile-pic, .profile-pic:hover { ... } */
+
+/* Profile Button Styling */
+.profile-button {
+    background-color: var(--secondary-color);
+    border: 3px solid var(--secondary-color);
+    border-radius: 50%;
+    padding: 0; /* Remove default padding */
+    cursor: pointer;
+    overflow: hidden; /* Ensure image stays circular */
+    width: 100px;  /* Button size */
+    height: 100px;
+    margin-bottom: 15px; /* Add space below button */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profile-button:hover {
+    transform: scale(1.05); /* Adjusted hover transform */
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+.profile-pic-small {
+    display: block; /* Remove extra space */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the button area */
+    border-radius: 50%; /* Ensure image itself is round */
+}
+
+.name {
+    margin: 10px 0 4px 0;
+    font-size: 1.6em;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.title {
+    margin: 0;
+    font-size: 1em;
+    font-weight: 400; /* Lighter weight */
+    color: #555; /* Slightly muted title color */
+}
+
+/* Card Body Styling */
+.card-body {
+    padding: 20px 25px 30px; /* Adjusted padding */
+}
+
+.bio {
+    font-size: 0.95em;
+    color: #444; /* Ensure text color has good contrast */
+    line-height: 1.6;
+    margin-bottom: 30px;
+    padding: 15px 20px; /* Add padding for breathing room */
+    position: relative; /* Keep for potential future layering if needed */
+    z-index: 1;
+
+    /* Adjust radial gradient for more visibility */
+    background-image: radial-gradient(
+        ellipse at center, /* Shape of the gradient */
+        rgba(255, 255, 255, 0.95) 60%, /* More opaque white center, larger area */
+        rgba(255, 255, 255, 0) 90%  /* Fade to transparent closer to edge */
+    );
+
+    /* Remove any previous pseudo-element styles if they exist */
+    /* text-shadow: none; */
+}
+
+/* Contact Info & Social Links Styling */
+.contact-info {
+    display: flex;
+    flex-direction: column; /* Keep column layout for general */
+    align-items: center; /* Center items horizontally */
+    gap: 18px; /* Increased gap */
+}
+
+.social-links {
+    display: flex;
+    justify-content: center; /* Center social icons horizontally */
+    gap: 15px; /* Space between social icons */
+    margin-top: 10px; /* Space above social icons */
+    flex-wrap: wrap; /* Allow wrapping if many icons */
+}
+
+/* General Link Styling (Base for Social Icons) */
+.contact-link {
+    display: inline-flex; /* Use inline-flex for icon buttons */
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    color: var(--light-text-color); /* Default icon color */
+}
+
+.contact-link:hover {
+    transform: scale(1.1); /* Slightly larger scale effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Circular Icon Button Styling */
+.icon-button {
+    width: 44px; /* Fixed size for circle */
+    height: 44px;
+    border-radius: 50%; /* Make it circular */
+    font-size: 1.2em; /* Adjust icon size if needed */
+    padding: 0; /* Remove padding */
+    border: none; /* Remove border */
+}
+
+.icon-button img, .icon-button svg {
+    width: 22px; /* Control icon size within button */
+    height: 22px;
+    vertical-align: middle;
+}
+
+/* Specific Social Button Styling */
+.whatsapp.icon-button {
+    background-color: var(--whatsapp-color);
+}
+.whatsapp.icon-button:hover {
+    background-color: #1DAE54; /* Darker WhatsApp */
+}
+
+.linkedin.icon-button {
+    background-color: var(--linkedin-color);
+}
+.linkedin.icon-button:hover {
+    background-color: #08549e; /* Darker LinkedIn */
+}
+
+.portfolio.icon-button { /* Assuming portfolio is also an icon */
+    background-color: var(--portfolio-color);
+}
+.portfolio.icon-button:hover {
+    background-color: #5a6268; /* Darker Portfolio */
+}
+
+/* Add other social icons here (e.g., github) */
+/* .github.icon-button { background-color: #333; } */
+/* .github.icon-button:hover { background-color: #111; } */
+
+
+/* Email Text Link Styling */
+.email-text-link {
+    color: var(--text-color); /* Standard text color */
+    text-decoration: none; /* Remove underline */
+    font-size: 1em;
+    padding: 5px 0; /* Add some vertical space */
+    transition: color 0.2s ease;
+    display: inline-block; /* Needed for padding to work */
+    position: relative; /* For potential underline effect on hover */
+}
+
+.email-text-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    display: block;
+    margin-top: 2px;
+    right: 0;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+    -webkit-transition: width 0.3s ease;
+}
+
+.email-text-link:hover {
+    color: #000; /* Slightly darker on hover */
+}
+
+.email-text-link:hover::after {
+    width: 100%;
+    left: 0;
+    background: var(--accent-color); /* Use accent for underline */
+}
+
+/* Hide default icon if using font awesome or svgs directly */
+/* .email-text-link svg { display: none; } */
+
+/* Add Contact Button Styling */
+.add-contact-button {
+    display: block; /* Take full width */
+    width: calc(100% - 40px); /* Account for padding */
+    max-width: 300px; /* Add max-width for larger screens */
+    padding: 14px 20px;
+    margin: 25px auto 0; /* Center horizontally, add top margin */
+    background-color: var(--accent-color);
+    color: #333; /* Dark text on yellow */
+    border-radius: 50px; /* Pill shape */
+    font-size: 1.1em;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border: none; /* Remove potential default border */
+}
+
+.add-contact-button:hover {
+    background-color: #e6c300; /* Darker yellow */
+    color: #000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transform: translateY(-2px); /* Slight lift */
+}
+
+/* Card Footer Styling */
+.card-footer {
+    background-color: transparent; /* Cleaner footer */
+    padding: 20px;
+    font-size: 0.8em;
+    color: #636363;
+    border-top: 1px solid var(--border-color);
+    margin-top: 10px; /* Space above footer */
+}
+
+/* --- Responsive Design --- */
+
+/* Tablet Styles */
+@media (min-width: 600px) {
+    .card-container {
+        max-width: 420px; /* Adjusted width */
+    }
+
+    .profile-pic {
+        width: 110px;
+        height: 110px;
+        margin-top: -65px; /* Adjust pull up */
+    }
+
+    .name {
+        font-size: 1.8em;
+    }
+
+    .title {
+        font-size: 1.05em;
+    }
+
+    .bio {
+        font-size: 1em;
+    }
+
+    .social-links {
+        gap: 18px; /* Slightly larger gap */
+    }
+
+    .icon-button {
+        width: 48px;
+        height: 48px;
+    }
+    .icon-button img, .icon-button svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* Desktop Styles */
+@media (min-width: 992px) {
+    .card-container {
+        max-width: 480px; /* Adjusted width */
+    }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+        margin-top: -70px; /* Adjust pull up */
+    }
+
+    .name {
+        font-size: 2em;
+    }
+
+    .title {
+        font-size: 1.1em;
+    }
+
+    .social-links {
+        gap: 20px;
+    }
+
+    .icon-button {
+        width: 50px;
+        height: 50px;
+    }
+    .icon-button img, .icon-button svg {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+/* Add Font Face if using custom fonts like Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+/* --- Modal Styling --- */
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.modal-open {
+    display: flex; /* Show the modal */
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dim background */
+    z-index: 1001;
+}
+
+.modal-content {
+    position: relative; /* For close button positioning */
+    z-index: 1002; /* Above overlay */
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px; /* Max image size */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.modal-image {
+    display: block;
+    max-width: 100%;
+    max-height: 70vh; /* Limit height */
+    margin: 0 auto; /* Center image */
+    border-radius: 4px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: black;
+    text-decoration: none;
+} 

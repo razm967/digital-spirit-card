@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Business Card - יהודה גבאי</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Optional: Add Google Fonts link here if not using @import -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"> -->
+    <!-- Add a favicon if you have one -->
+    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
+</head>
+<body>
+    <!-- tsparticles container -->
+    <div id="tsparticles"></div>
+
+    <!-- Remove previous point divs if they exist -->
+    <!-- <div class="background-points"> ... </div> -->
+
+    <div class="card-container">
+        <header class="card-header">
+            <!-- Profile Picture Button -->
+            <button type="button" class="profile-button" id="profileButton" aria-label="View larger profile picture" data-large-image="../PRP.jpeg"> <!-- Adjust path for dark theme -->
+                <!-- Small profile pic inside button -->
+                <img src="../PRP.jpeg" alt="Profile Picture" class="profile-pic-small"> <!-- Adjust path for dark theme -->
+            </button>
+            <!-- Name and Title -->
+            <h1 class="name">יהודה גבאי</h1>
+            <p class="title">[Your Job Title]</p>
+        </header>
+
+        <section class="card-body">
+            <!-- Short Bio/Description -->
+            <p class="bio">
+                [Write a short, engaging bio or description about yourself or your work here. Keep it concise and professional, highlighting key skills or value.]
+            </p>
+
+            <!-- Contact Info & Links -->
+            <div class="contact-info">
+                <!-- Email styled as text -->
+                <a href="mailto:[your.email@example.com]" class="email-text-link">
+                    [your.email@example.com]
+                </a>
+
+                <!-- Social Links as Icon Buttons -->
+                <div class="social-links">
+                    <a href="https://wa.me/[YourWhatsAppNumber]" target="_blank" rel="noopener noreferrer" class="contact-link whatsapp icon-button" aria-label="Chat on WhatsApp">
+                        <!-- Use an actual SVG or Font Awesome icon here if preferred -->
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                    </a>
+                    <a href="[Your LinkedIn Profile URL]" target="_blank" rel="noopener noreferrer" class="contact-link linkedin icon-button" aria-label="Connect on LinkedIn">
+                        <!-- Placeholder for LinkedIn Icon - Replace with SVG/FA -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="[Your Portfolio/Website URL]" target="_blank" rel="noopener noreferrer" class="contact-link portfolio icon-button" aria-label="View Portfolio/Website">
+                        <!-- Placeholder for Portfolio/Website Icon - Replace with SVG/FA -->
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54C17.63 14.4 16.18 14 15 14v-1c0-.55-.45-1-1-1h-4c-.55 0-1 .45-1 1v1c-1.18 0-2.63.4-3.9 1.39C5.3 13.99 4.48 13.05 4.1 12c.41-4.41 3.87-7.84 8.29-8.18.16-.01.31-.02.47-.02 4.13 0 7.66 2.95 8.5 6.88-.38 1.05-1.2 1.99-2.39 2.79z"/></svg>
+                    </a>
+                    <!-- Add more social icon links here as needed (e.g., GitHub) -->
+                    <!-- <a href="[Your GitHub URL]" target="_blank" rel="noopener noreferrer" class="contact-link github icon-button" aria-label="View GitHub Profile">
+                        <svg>...</svg>
+                    </a> -->
+                </div>
+            </div>
+
+            <!-- Add Contact Button -->
+            <a href="#" id="addContactBtn" class="contact-link add-contact-button" download="contact.vcf">
+                Save Contact
+            </a>
+        </section>
+
+        <footer class="card-footer">
+            <!-- Optional footer content -->
+            <p>&copy; 2025 [Your Name]. All rights reserved.</p>
+        </footer>
+    </div> <!-- End of card-container -->
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <span class="modal-close" aria-label="Close image viewer">&times;</span>
+            <img src="" alt="Profile Picture Large" id="modalImage" class="modal-image">
+        </div>
+    </div>
+
+    <!-- Link to JavaScript file (optional) -->
+    <script src="script.js"></script>
+
+    <!-- Add tsparticles library -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
+</body>
+</html> 
