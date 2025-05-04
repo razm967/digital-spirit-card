@@ -4,11 +4,11 @@
     --text-color: #333333;
     --light-text-color: #f8f9fa;
     --background-color: #f0f2f5;
-    --accent-color: #ffd700; /* Subtle yellow accent */
+    --accent-color: #ff0000; /* Changed to red accent */
     --border-color: #e0e0e0;
     --shadow-color: rgba(0, 0, 0, 0.08);
     --whatsapp-color: #25D366;
-    --linkedin-color: #0A66C2;
+    --github-color: #333; /* Added GitHub color */
     --portfolio-color: #6c757d; /* Keeping portfolio/website distinct */
 }
 
@@ -21,7 +21,7 @@ body {
     background: linear-gradient(
         -45deg, /* Angle of the gradient waves */
         var(--background-color) 25%,
-        rgba(255, 215, 0, 0.1) 60%, /* Subtle yellow wave */
+        rgba(255, 0, 0, 0.1) 60%, /* Subtle red wave */
         rgba(0, 0, 0, 0.05) 90%, /* Subtle dark wave */
         var(--background-color) 75%
     );
@@ -245,11 +245,11 @@ body {
     background-color: #1DAE54; /* Darker WhatsApp */
 }
 
-.linkedin.icon-button {
-    background-color: var(--linkedin-color);
+.github.icon-button {
+    background-color: var(--github-color);
 }
-.linkedin.icon-button:hover {
-    background-color: #08549e; /* Darker LinkedIn */
+.github.icon-button:hover {
+    background-color: #111; /* Darker GitHub */
 }
 
 .portfolio.icon-button { /* Assuming portfolio is also an icon */
@@ -319,8 +319,8 @@ body {
 }
 
 .add-contact-button:hover {
-    background-color: #e6c300; /* Darker yellow */
-    color: #000;
+    background-color: #cc0000; /* Darker red hover */
+    color: #fff; /* White text for contrast */
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     transform: translateY(-2px); /* Slight lift */
 }

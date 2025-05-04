@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 },
                 color: {
-                    value: ["#444444", "#666666", "#ffd700"] // Dark Grey, Med Grey, and yellow particles
+                    value: ["#444444", "#666666", "#ff0000"] // Dark Grey, Med Grey, and yellow particles
                 },
                 shape: {
                     type: "circle" // Shape of particles
@@ -127,9 +127,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const addContactButton = document.getElementById('addContactBtn');
     if (addContactButton) {
         // --- Get contact details from the page (use placeholders for now) ---
-        const contactName = document.querySelector('.name')?.textContent.trim() || 'Your Name';
-        const contactTitle = document.querySelector('.title')?.textContent.trim() || 'Your Job Title';
-        const contactEmail = document.querySelector('.email-text-link')?.textContent.trim() || 'your.email@example.com';
+        const contactName = document.querySelector('.name')?.textContent.trim() || 'spirit #52';
+        const contactTitle = document.querySelector('.title')?.textContent.trim() || '#52 middle school fll robotics team';
+        const contactEmail = document.querySelector('.email-text-link')?.textContent.trim() || 'spiritrobotics52@gmail.com';
         const whatsappLink = document.querySelector('.whatsapp.icon-button')?.href;
         let contactPhone = '';
         if (whatsappLink) {
@@ -138,8 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 contactPhone = phoneMatch[1];
             }
         }
-        const contactLinkedIn = document.querySelector('.linkedin.icon-button')?.href || '';
-        const contactPortfolio = document.querySelector('.portfolio.icon-button')?.href || '';
+        const contactGithub = document.querySelector('.github.icon-button')?.href || 'https://github.com/spirit52-coders';
         // --- End Get contact details ---
 
         const vcfData = [
@@ -150,8 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `TITLE:${contactTitle}`,
             `EMAIL;type=INTERNET;type=WORK;type=pref:${contactEmail}`,
             contactPhone ? `TEL;type=CELL;type=VOICE;type=pref:${contactPhone}` : '',
-            contactLinkedIn ? `URL;type=LinkedIn:${contactLinkedIn}` : '',
-            contactPortfolio ? `URL;type=Portfolio:${contactPortfolio}` : '',
+            contactGithub ? `URL;type=GitHub:${contactGithub}` : '',
             'END:VCARD'
         ].filter(Boolean).join('\n');
 

@@ -5,11 +5,11 @@
     --text-color: #cccccc;       /* Light grey text */
     --light-text-color: #1a1a1a; /* Dark text for light buttons */
     --background-color: #121212;  /* Very dark page background */
-    --accent-color: #ffd700;     /* Keep yellow accent */
+    --accent-color: #ff0000;     /* Changed to red accent */
     --border-color: #444444;     /* Darker border */
     --shadow-color: rgba(255, 255, 255, 0.05); /* Lighter shadow for dark bg */
     --whatsapp-color: #25D366;
-    --linkedin-color: #0A66C2;
+    --github-color: #bbbbbb; /* Lighter GitHub icon for dark theme */
     --portfolio-color: #888888; /* Adjusted portfolio color */
 }
 
@@ -22,7 +22,7 @@ body {
     background: linear-gradient(
         -45deg,
         var(--background-color) 25%,
-        rgba(255, 215, 0, 0.08) 60%, /* Slightly adjusted yellow wave */
+        rgba(255, 0, 0, 0.08) 60%, /* Slightly adjusted red wave */
         rgba(255, 255, 255, 0.03) 90%, /* Subtle light wave */
         var(--background-color) 75%
     );
@@ -228,11 +228,13 @@ body {
     background-color: #1DAE54; /* Darker WhatsApp */
 }
 
-.linkedin.icon-button {
-    background-color: var(--linkedin-color);
+/* GitHub Button Styling */
+.github.icon-button {
+    background-color: var(--github-color);
+    /* Adjust icon color if needed, e.g., using filter */
 }
-.linkedin.icon-button:hover {
-    background-color: #08549e; /* Darker LinkedIn */
+.github.icon-button:hover {
+    background-color: #ffffff; /* White hover for GitHub */
 }
 
 .portfolio.icon-button { /* Assuming portfolio is also an icon */

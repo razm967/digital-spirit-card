@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 },
                 color: {
-                    value: ["#ffffff", "#aaaaaa", "#ffd700"] // White, grey, and yellow particles
+                    value: ["#ffffff", "#aaaaaa", "#ff0000"] // White, grey, and yellow particles
                 },
                 shape: {
                     type: "circle" // Shape of particles
@@ -128,9 +128,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (addContactButton) {
         // --- Get contact details from the page (use placeholders for now) ---
         // In a real app, you might get these from data attributes or other elements
-        const contactName = document.querySelector('.name')?.textContent.trim() || 'Your Name';
-        const contactTitle = document.querySelector('.title')?.textContent.trim() || 'Your Job Title';
-        const contactEmail = document.querySelector('.email-text-link')?.textContent.trim() || 'your.email@example.com';
+        const contactName = document.querySelector('.name')?.textContent.trim() || 'spirit #52';
+        const contactTitle = document.querySelector('.title')?.textContent.trim() || '#52 middle school fll robotics team';
+        const contactEmail = document.querySelector('.email-text-link')?.textContent.trim() || 'spiritrobotics52@gmail.com';
         // Assuming WhatsApp number is in the link href like wa.me/12345
         const whatsappLink = document.querySelector('.whatsapp.icon-button')?.href;
         let contactPhone = '';
@@ -140,8 +140,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 contactPhone = phoneMatch[1];
             }
         }
-        const contactLinkedIn = document.querySelector('.linkedin.icon-button')?.href || '';
-        const contactPortfolio = document.querySelector('.portfolio.icon-button')?.href || '';
+        // Removed LinkedIn and Portfolio, added GitHub
+        const contactGithub = document.querySelector('.github.icon-button')?.href || 'https://github.com/spirit52-coders';
         // --- End Get contact details ---
 
         const vcfData = [
@@ -153,9 +153,9 @@ document.addEventListener('DOMContentLoaded', () => {
             `EMAIL;type=INTERNET;type=WORK;type=pref:${contactEmail}`,
             // Add phone only if found
             contactPhone ? `TEL;type=CELL;type=VOICE;type=pref:${contactPhone}` : '',
-            // Add URLs if they exist
-            contactLinkedIn ? `URL;type=LinkedIn:${contactLinkedIn}` : '',
-            contactPortfolio ? `URL;type=Portfolio:${contactPortfolio}` : '',
+            // Add GitHub URL if it exists
+            contactGithub ? `URL;type=GitHub:${contactGithub}` : '',
+            // Removed LinkedIn and Portfolio URLs
             'END:VCARD'
         ].filter(Boolean).join('\n'); // Filter out empty lines and join
 
