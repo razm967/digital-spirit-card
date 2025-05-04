@@ -167,6 +167,29 @@ document.addEventListener('DOMContentLoaded', () => {
         addContactButton.setAttribute('download', filename);
     }
     // --- End VCF Generation Logic ---
+
+    // --- Email Link Logic (Attempt to open Gmail on desktop) ---
+    const emailLink = document.getElementById('emailLink');
+    if (emailLink) {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        const emailAddress = 'spiritrobotics52@gmail.com';
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailAddress}`;
+        const mailtoUrl = `mailto:${emailAddress}`;
+
+        // Basic check for mobile keywords
+        if (/android|iphone|ipad|ipod|windows phone|iemobile|blackberry|opera mini/i.test(userAgent.toLowerCase())) {
+            // Use mailto: for mobile
+            emailLink.href = mailtoUrl;
+            emailLink.removeAttribute('target'); // Allow OS to handle mailto
+        } else {
+            // Use Gmail URL for likely desktops
+            emailLink.href = gmailUrl;
+            emailLink.target = '_blank'; // Open Gmail in new tab
+            emailLink.rel = 'noopener noreferrer';
+        }
+    }
+    // --- End Email Link Logic ---
+
 });
 
 // Function to open image in a popup window
